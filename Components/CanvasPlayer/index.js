@@ -65,7 +65,7 @@ customElements.define('canvas-player', class CanvasPlayer extends HTMLElement {
     }
 
     startVideo() {
-        this.shadowRoot.querySelector("button").className = "hidden";
+        this.shadowRoot.querySelector("#play").className = "hidden";
         this.video.play();
         this.videoPlaying = true;
     }

@@ -12,9 +12,15 @@ customElements.define('canvas-player', class CanvasPlayer extends HTMLElement {
         root.appendChild(template.content.cloneNode(true));
 
         // Registers our onclick action to start the video
-        const playButton = this.shadowRoot.querySelector("button");
+        const playButton = this.shadowRoot.querySelector("#play");
         playButton.addEventListener("click", () => {
             this.startVideo();
+        })
+
+        // Registers our onclick action to toggle the canvas
+        const toggleCanvas = this.shadowRoot.querySelector("#toggle");
+        toggleCanvas.addEventListener("click", () => {
+            this.toggleCanvas();
         })
 
         // Adds a prototype to the Number object so we
@@ -59,9 +65,15 @@ customElements.define('canvas-player', class CanvasPlayer extends HTMLElement {
     }
 
     startVideo() {
-        this.shadowRoot.querySelector("button").style = "display:none;";
+        this.shadowRoot.querySelector("button").className = "hidden";
         this.video.play();
         this.videoPlaying = true;
+    }
+
+    toggleCanvas() {
+        this.canvas.className === "hidden" ?
+            this.canvas.className = "" :
+            this.canvas.className = "hidden";
     }
 
     renderCanvas() {

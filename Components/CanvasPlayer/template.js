@@ -22,7 +22,7 @@ template.innerHTML = `
         video {
             z-index: 1;
         }
-        button {
+        #play {
             position: absolute;
             left: 50%;
             top: 50%;
@@ -37,12 +37,22 @@ template.innerHTML = `
             font-size: 24px;
             cursor: pointer;
         }
+        #toggle {
+            position: absolute;
+            right: 0;
+            bottom: 0%;
+            z-index: 3;
+        }
+        .hidden {
+            display: none;
+        }
 
     </style>
     <div>
         <video></video>
         <canvas></canvas>
-        <button>PLAY</button>
+        <button id="play">PLAY</button>
+        <button id="toggle">Toggle Canvas</button>
     </div>
 `;
 
